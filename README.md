@@ -9,6 +9,8 @@ Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.
 | :---: | :---: | :---:  |
 | [Day 1](./src/bin/01.rs) | ⭐️ | ⭐️ |
 | [Day 2](./src/bin/02.rs) | ⭐️ | ⭐️ |
+| [Day 3](./src/bin/03.rs) | ⭐️ | ⭐️ |
+| [Day 4](./src/bin/04.rs) | ⭐️ | ⭐️ |
 
 <!--- benchmarking table --->
 ## Benchmarks
@@ -17,8 +19,11 @@ Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.
 | :---: | :---: | :---:  |
 | [Day 1](./src/bin/01.rs) | `38.1µs` | `43.1µs` |
 | [Day 2](./src/bin/02.rs) | `26.9ms` | `127.9ms` |
+| [Day 3](./src/bin/03.rs) | `26.3µs` | `43.7µs` |
+| [Day 4](./src/bin/04.rs) | `795.9µs` | `20.9ms` |
 
-**Total: 154.88ms**
+**Total: 176.15ms**
+<!--- benchmarking table --->
 
 ---
 
