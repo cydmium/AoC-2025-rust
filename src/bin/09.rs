@@ -36,6 +36,15 @@ impl Rectangle {
 
         (Point { x: min_x, y: min_y }, Point { x: max_x, y: max_y })
     }
+
+    fn contains(&self, border: &(Point, Point)) -> bool {
+        let (bottom_left, top_right) = self.get_extremes();
+        let above_or_below = (border.0.y <= bottom_left.y && border.1.y <= bottom_left.y)
+            || (border.0.y >= top_right.y && border.1.y >= top_right.y); // Border is fully above or below rectangle
+        let left_or_right = (border.0.x <= bottom_left.x && border.1.x <= bottom_left.x)
+            || (border.0.x >= top_right.x && border.1.x >= top_right.x); // Border is fully left or right of rectangle
+        !(left_or_right || above_or_below) // Border is inside rectangle
+    }
 }
 
 fn parse(input: &str) -> Vec<Point> {
@@ -69,14 +78,7 @@ fn generate_rectangles(points: &Vec<Point>) -> Vec<Rectangle> {
 fn valid_rectangle(rectangle: &Rectangle, borders: &Vec<(Point, Point)>) -> bool {
     borders
         .iter()
-        .filter(|(pt1, pt2)| {
-            let (bottom_left, top_right) = rectangle.get_extremes();
-            let above_or_below = (pt1.y <= bottom_left.y && pt2.y <= bottom_left.y)
-                || (pt1.y >= top_right.y && pt2.y >= top_right.y); // Border is fully above or below rectangle
-            let left_or_right = (pt1.x <= bottom_left.x && pt2.x <= bottom_left.x)
-                || (pt1.x >= top_right.x && pt2.x >= top_right.x); // Border is fully left or right of rectangle
-            !(left_or_right || above_or_below) // Border is inside rectangle
-        })
+        .filter(|border| rectangle.contains(*border))
         .peekable()
         .peek()
         .is_none() // No borders inside rectangle
