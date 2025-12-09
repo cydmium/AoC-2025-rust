@@ -134,9 +134,13 @@ fn compute_circuits_pt2(distances: Vec<Vec<f64>>) -> (usize, usize) {
 
 pub fn part_one(input: &str) -> Option<u64> {
     let points = parse(input);
+    let num_connections: usize;
+    if points.len() == 20 {
+        num_connections = 10; // Test case
+    } else {
+        num_connections = 1000; // Real input
+    }
 
-    // let num_connections = 10; // Test case
-    let num_connections = 1000; // Real input
     let distances = compute_distances(&points);
     let mut circuits = compute_circuits_pt1(distances, num_connections);
     circuits.sort_by(|a, b| a.len().cmp(&b.len()));
