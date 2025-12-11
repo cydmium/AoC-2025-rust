@@ -16,6 +16,7 @@ Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.
 | [Day 7](./src/bin/07.rs) | ⭐️ | ⭐️ |
 | [Day 8](./src/bin/08.rs) | ⭐️ | ⭐️ |
 | [Day 9](./src/bin/09.rs) | ⭐️ | ⭐️ |
+| [Day 10](./src/bin/10.rs) | ⭐️ | ⭐️ |
 
 <!--- benchmarking table --->
 ## Benchmarks
